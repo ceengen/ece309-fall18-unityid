@@ -45,9 +45,9 @@ ListNode *tail;
   StringList();
   ~StringList();
   void push_back(char string);
-  Item get(int n);
+  char get(int n);
   int length();
-  Item remove_front();  
+  char remove_front();  
 };
 
 //constructor
@@ -83,7 +83,7 @@ void StringList::push_back(char string)
 }
 
 //return a copy of the n-th item in the list
-Item StringList::get(int n) 
+char StringList::get(int n) 
     {
       ListNode * tmp = head;
       int i;
@@ -108,7 +108,7 @@ int StringList::length()
     }
 
 //remove the head of the list and return a copy of the data that was removed
-Item StringList::remove_front()
+char StringList::remove_front()
     {
       if(!empty())
       {
