@@ -5,7 +5,17 @@ StringList()
 ~StringList()
 
 //add a string to the tail of a list
-push_back(string)
+push_back(string){
+  ListNode *node = new ListNode(string);
+  if(head==NULL) {
+    head = node;
+    tail = node;
+  }
+  else(
+    tail->setNext(node);
+    tail = node;
+   }
+}
 
 //return a copy of the n-th item in the list
 get(n)
