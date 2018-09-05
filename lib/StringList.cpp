@@ -111,8 +111,8 @@ char StringList::remove_front()
     {
       if(!empty())
       {
-        copy = head->getItem();
-        ListNode *temp = head->getNext();
+        ListNode *copy = head;
+        ListNode *tmp = head->getNext();
         delete head;
         head = tmp;
         if (tmp==NULL)
