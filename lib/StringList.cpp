@@ -51,9 +51,7 @@ StringList::StringList(h= NULL, t= NULL)
 //destructor
 StringList::~StringList()
 {
-  int length = length();
-  int i;
-  while(i=0; i<=length; i++)
+  while(!empty())
   {
     remove_front()
   }
@@ -88,7 +86,7 @@ char StringList::get(n)
 int StringList::length()
     {
       int total=0;
-      while(!empty())
+      while()
       {
         
         total++;
