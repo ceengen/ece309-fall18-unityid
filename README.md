@@ -3,6 +3,7 @@
 ## ECE 306 Fall 2018
 ### *9/4/18*
 
-
-* Change 1
-* Change 2
+## Homework 2
+* Create repository ece309-fall18-ceengen
+* Connect with Travis-CI
+* 
