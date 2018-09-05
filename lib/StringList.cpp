@@ -12,11 +12,12 @@ class Item
 
 class StringList
 {
-  private:
-    Item item;
-    ListNode *next;
   public:
-    ListNode(Item a)
+    class ListNode {
+      public:
+        Item item;
+        ListNode *next;
+        ListNode(Item a)
     {
       item = a;
       next=NULL;
@@ -31,7 +32,7 @@ class StringList
     }
     bool empty()
     {
-      retrun head==NULL;
+      return head==NULL;
     }
 };
 
@@ -40,12 +41,20 @@ class StringList
 ListNode *head;
 ListNode *tail;
 
+  public:
+  StringList();
+  ~StringList();
+  void push_back(char string);
+  char get(int n);
+  int length();
+  char remove_front();  
+};
 
 //constructor
-StringList::StringList(h= NULL, t= NULL)
+StringList::StringList()
 {
-  head= h;
-  tail= t;
+  head= NULL;
+  tail= NULL;
 }
 
 //destructor
@@ -53,12 +62,12 @@ StringList::~StringList()
 {
   while(!empty())
   {
-    remove_front()
+    remove_front();
   }
 }
 
 //add a string to the tail of a list
-void StringList::push_back(string)
+void StringList::push_back(char string)
 {
   ListNode *node = new ListNode(string);
   if(head==NULL) 
@@ -74,28 +83,31 @@ void StringList::push_back(string)
 }
 
 //return a copy of the n-th item in the list
-char StringList::get(n) 
+char StringList::get(int n) 
     {
+      ListNode * tmp = head;
       while(int i =0; i<=n; i++)
       {
-        return item;
+        tmp = tmp->next;
       }
+        return tmp;
     }
 
 //get the number of items in the list
 int StringList::length()
     {
+      ListNode * tmp = head;
       int total=0;
-      while()
+      while(tmp != NULL)
       {
-        
+        tmp = tmp->next;
         total++;
       }
       return total;
     }
 
 //remove the head of the list and return a copy of the data that was removed
-bool StringList::remove_front()
+char StringList::remove_front()
     {
       if(!empty())
       {
@@ -107,6 +119,5 @@ bool StringList::remove_front()
           tail=NULL;
         return copy;
       }
-      return false;
     }
 
