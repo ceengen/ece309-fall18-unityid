@@ -10,7 +10,7 @@ class Item
     }
 };
 
-class List
+class StringList
 {
   private:
     Item item;
@@ -42,14 +42,14 @@ ListNode *tail;
 
 
 //constructor
-StringList(h= NULL, t= NULL)
+StringList::StringList(h= NULL, t= NULL)
 {
   head= h;
   tail= t;
 }
 
 //destructor
-~StringList()
+StringList::~StringList()
 {
   int length = length();
   int i;
@@ -60,7 +60,7 @@ StringList(h= NULL, t= NULL)
 }
 
 //add a string to the tail of a list
-push_back(string)
+void StringList::push_back(string)
 {
   ListNode *node = new ListNode(string);
   if(head==NULL) 
@@ -76,7 +76,7 @@ push_back(string)
 }
 
 //return a copy of the n-th item in the list
-get(n) 
+char StringList::get(n) 
     {
       while(int i =0; i<=n; i++)
       {
@@ -85,18 +85,19 @@ get(n)
     }
 
 //get the number of items in the list
-int length()
+int StringList::length()
     {
       int total=0;
-      while()
+      while(!empty())
       {
+        
         total++;
       }
       return total;
     }
 
 //remove the head of the list and return a copy of the data that was removed
-remove_front()
+bool StringList::remove_front()
     {
       if(!empty())
       {
