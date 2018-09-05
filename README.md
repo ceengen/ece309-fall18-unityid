@@ -2,7 +2,7 @@
 ## Colleen "Bria" Engen
 ## ECE 306 Fall 2018
 ### *9/4/18*
-Repository for students to fork and modify.
 
-*Change 1
-*Change 2
+
+* Change 1
+* Change 2
