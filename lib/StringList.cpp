@@ -130,7 +130,10 @@ Item StringList::remove_front()
 	tail = NULL;
       return copy;  //return value of item being deleted
     }
-return NULL;// nothing in StringList
+else
+{
+	return NULL;// nothing in StringList
+}
 }
 
 //checks if list is empty
