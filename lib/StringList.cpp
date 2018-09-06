@@ -140,7 +140,4 @@ bool StringList::empty()
 }
 
 
-int main()
-{
-  return 0;
-}
+
