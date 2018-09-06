@@ -1,103 +1,113 @@
 #include <stdio.h>
 
-class Item
-{
-  public:
-    const char * str;
-    Item(const char *as = "")
-    {
-      str = as;
-    }
-};
-
-class StringList
-{
-  public:
-    class ListNode {
-      public:
-        Item item;
-        ListNode *next;
-        ListNode(Item a)
-    {
-      item = a;
-      next=NULL;
-    }
-    ListNode* getNext()
-    {
-      return next;
-    }
-    Item getItem()
-    {
-      return item;
-    }
-    bool empty()
-    {
-      return head==NULL;
-    }
+class Item {
+public:
+  const char * str;
+  Item(const char *as = "") 
+  { 
+    str = as; 
+  }
 };
 
 
+class StringList {
+private:
 
-ListNode *head;
-ListNode *tail;
-
+// StringListNode represents each 
+// node of the StringList
+  class StringListNode {
   public:
+    Item item; // data in the StringList
+    StringListNode *next;	
+  public:
+    StringListNode(Item a) 
+    { 
+      item = a; 
+      next=NULL; // automatically serves as a StringList tail
+    }
+    StringListNode* getNext() 
+    { 
+      return next; 
+    }
+    void setNext(StringListNode *n) 
+    { 
+      next = n; 
+    }
+    Item getItem() //returns item value
+    { 
+      return item; 
+    }
+  };
+
+  // add head and tail pointer
+  StringListNode *head;
+  StringListNode *tail;
+
+
+ //declares functions 
+public:
   StringList();
   ~StringList();
-  void push_back(char string);
-  char get(int n);
+  void push_back(Item a);
+  Item get(int n);
   int length();
-  char remove_front();  
+  Item remove_front();    
+  bool empty(); 
 };
 
-//constructor
+//constructor, initializes an empty list
 StringList::StringList()
 {
-  head= NULL;
-  tail= NULL;
+  // start with an empty StringList
+  head = NULL;
+  tail = NULL;
 }
 
-//destructor
+//destructor, deletes all nodes in list
 StringList::~StringList()
 {
-  while(!empty())
+	while(!empty())
   {
     remove_front();
   }
 }
 
-//add a string to the tail of a list
-void StringList::push_back(char string)
+//add string to tail of list
+void StringList::push_back(Item a)
 {
-  ListNode *node = new ListNode(string);
-  if(head==NULL) 
-  {
-    head = node;
-    tail = node;
-  }
-  else
-  {
-    tail->setNext(node);
-    tail = node;
-  }
+  StringListNode *node = new StringListNode(a);
+  if (head == NULL)
+    {
+      // StringList is empty
+      head = node;
+      tail = node;
+    }
+  else 
+    {
+      tail->setNext(node);
+      tail = node;
+    }
 }
 
-//return a copy of the n-th item in the list
-char StringList::get(int n) 
-    {
-      ListNode * tmp = head;
-      int i;
-      while(i =0; i<=n; i++)
-      {
-        tmp = tmp->next;
-      }
-        return tmp;
-    }
+//return copy of n-th item in the list
+Item StringList::get(int n)
+{
+	StringListNode * tmp = head;
+	int i=0;
+	Item val;
+	while(i<=n)
+	{
+		tmp = tmp->next;
+		val = tmp->getItem();
+		i++;
+	}
+	return val;
+}
 
-//get the number of items in the list
+//get number of items in the list
 int StringList::length()
-    {
-      ListNode * tmp = head;
+{
+	StringListNode * tmp = head;
       int total=0;
       while(tmp != NULL)
       {
@@ -105,20 +115,32 @@ int StringList::length()
         total++;
       }
       return total;
-    }
+}
 
-//remove the head of the list and return a copy of the data that was removed
-char StringList::remove_front()
+//remove head of list and return copy of data removed
+Item StringList::remove_front() 
+{
+  if (!empty()) // if StringList is not empty
     {
-      if(!empty())
-      {
-        ListNode *copy = head;
-        ListNode *tmp = head->getNext();
-        delete head;
-        head = tmp;
-        if (tmp==NULL)
-          tail=NULL;
-        return copy;
-      }
+      Item copy = head->getItem(); // return copy
+      StringListNode *tmp = head->getNext();
+      delete head; // delete the node
+      head = tmp;  // update the head
+      if (tmp==NULL) // remove_frontd last element 
+	tail = NULL;
+      return copy;  //return value of item being deleted
     }
+	// nothing in StringList
+}
 
+//checks if list is empty
+bool StringList::empty()
+{
+  return head==NULL;
+}
+
+
+int main()
+{
+  return 0;
+}
