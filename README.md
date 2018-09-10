@@ -4,7 +4,7 @@
 ### *9/4/18*
 
 ## Homework 2
-* Create repository ece309-fall18-ceengen
+* Create repository ece309-hw2
 * Connect with Travis-CI
 * Create StringList.cpp file in lib
   * Create push_back function that adds string to tail of list
