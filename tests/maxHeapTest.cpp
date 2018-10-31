@@ -25,10 +25,10 @@ int main() {
     heap.print();
     heap.insert(5);
     heap.insert(50);
-    heap.print();
+    //heap.print();
     int ref;
     heap.remove(ref);
-    heap.print();
+    //heap.print();
     for (int i = 0; i < 100; i++)
       heap.insert(rand() % 1000);
     for (int i = 0; i < 20; i++)
