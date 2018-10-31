@@ -217,7 +217,7 @@ void MaxHeap::topthree(int &gold, int &silver, int &bronze) const
 		}
 		
 		//if silver at index 2
-		else(silver == heapArray[2])
+		else
 		{
 			if(heapArray[1] > heapArray[3])
 			{
