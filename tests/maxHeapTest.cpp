@@ -34,10 +34,14 @@ int main() {
     for (int i = 0; i < 20; i++)
       heap.remove(ref);
     heap.print();
-    
-    printf("gold: %d ", heap.gold);
-    printf("silver: %d ", heap.silver);
-    printf("bronze: %d ", heap.bronze);
+    int gold =0;
+    int silver =0;
+    int bronze = 0;
+    heap.topthree(gold, silver, bronze);
+  
+    printf("gold: %d ", gold);
+    printf("silver: %d ", silver);
+    printf("bronze: %d ", bronze);
 
   return 0;
 }
