@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "maxHeap.cpp"
 
 int main() {
 
@@ -34,9 +35,9 @@ int main() {
       heap.remove(ref);
     heap.print();
     
-    printf("gold: %d ", gold);
-    printf("silver: %d ", silver);
-    printf("bronze: %d ", bronze);
+    printf("gold: %d ", heap.gold);
+    printf("silver: %d ", heap.silver);
+    printf("bronze: %d ", heap.bronze);
 
   return 0;
 }
