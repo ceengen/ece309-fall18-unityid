@@ -38,18 +38,38 @@ int main(){
         nInf.num, nInf.posInf, nInf.negInf);
   }
   
-  //test = constructor
-  IntInf sum = intNum;
-  if(sum.num == 12 && sum.posInf == false && sum.negInf == false)
+  //test = operator with int
+  IntInf e = intNum;
+  if(e.num == 12 && e.posInf == false && e.negInf == false)
     testPassCnt++;
   else
   {
     testFailCnt++;
     printf("Constructor test fails, nInf should be {12, 0, 0} instead of {%d, %d, %d}", 
-        sum.num, sum.posInf, sum.negInf);
+        e.num, e.posInf, e.negInf);
   }
   
-  //test
+  //test = operator with ninf
+  IntInf e2 = ninf;
+  if(e2.num == 0 && e2.posInf == false && e2.negInf == true)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("Constructor test fails, nInf should be {0, 1, 0} instead of {%d, %d, %d}", 
+        e2.num, e2.posInf, e2.negInf);
+  }
+  
+  //test + operator with pinf
+  IntInf sum = pinf + pinf;
+  if(sum.num == 0 && sum.posInf == true && sum.negInf == false)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("Constructor test fails, pInf should be {0, 0, 1} instead of {%d, %d, %d}", 
+        sum.num, sum.posInf, sum.negInf);
+  }
 
   printf("Tests passed: %d, tests failed: %d\n", testPassCnt, testFailCnt);
   return 0; 
