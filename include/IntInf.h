@@ -10,7 +10,7 @@ public:
 	bool undefined;
 
 public:
-	IntInf(int n=0, bool neg=false, bool pos=false, bool undefined=false);
+	IntInf(int n=0, bool neg=false, bool pos=false, bool u=false);
 	IntInf operator =(const IntInf& rhs) const;
 	IntInf operator +(const IntInf& rhs) const;
 	IntInf operator -(const IntInf& rhs) const;
