@@ -126,13 +126,14 @@ int main(){
   
   //test < operator with nInf and nInf
   bool isLess = nInf < nInf;
-  if(isGreater == false)
+  if(isLess == false)
     testPassCnt++;
   else
   {
     testFailCnt++;
     printf("< operater test fails, isLess should be false");
   }
+  
   printf("Tests passed: %d, tests failed: %d\n", testPassCnt, testFailCnt);
   return 0; 
 }
