@@ -72,7 +72,7 @@ IntInf IntInf::operator *(const IntInf& rhs) const{
 	{
 		result.num = num * rhs.num;
 	}
-	else if((!posInf && !negInf && num == 0)||(!rhs.posInf && !rhs.posInf && rhs.num ==0) //one is zero
+	else if((!posInf && !negInf && num == 0)||(!rhs.posInf && !rhs.posInf && rhs.num ==0)) //one is zero
 	{
 		result.num =0;
 	}	
@@ -84,7 +84,7 @@ IntInf IntInf::operator *(const IntInf& rhs) const{
 	{
 		result.posInf = true;
 	}
-	else if(posInf && rhs.negInf || negInf && rhs.posInf) //one neg inf other pos inf
+	else if((posInf && rhs.negInf) || (negInf && rhs.posInf)) //one neg inf other pos inf
 	{
 		result.negInf = true;
 	}
