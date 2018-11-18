@@ -160,7 +160,7 @@ bool IntInf::operator >(const IntInf& rhs) const{
 	}
 	else if(negInf && rhs.negInf) //both neg inf
 	{
-		retunr true;
+		return true;
 	}
 	else if(posInf) //compairing pos inf to something else
 	{
@@ -188,7 +188,7 @@ bool IntInf::operator <(const IntInf& rhs) const{
 	}
 	else if(negInf && rhs.negInf) //both neg inf
 	{
-		retunr false;
+		return false;
 	}
 	else if(negInf) //compairing neg inf to something else
 	{
