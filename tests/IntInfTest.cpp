@@ -17,7 +17,7 @@ int main(){
   }
   
   //test constructor for positive infinity
-  IntInf pInf(,true,,);
+  IntInf pInf(0,true);
   if(pInf.num == 0 && pInf.posInf == true && pInf.negInf == false)
     testPassCnt++;
   else
@@ -28,7 +28,7 @@ int main(){
   }
   
   //test constructor for negatice infinity
-  IntInf nInf(,,true,);
+  IntInf nInf(0,false,true);
   if(nInf.num == 0 && nInf.posInf == false && nInf.negInf == true)
     testPassCnt++;
   else
