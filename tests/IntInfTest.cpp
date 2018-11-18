@@ -50,7 +50,7 @@ int main(){
   }
   
   //test = operator with ninf
-  IntInf e2 = ninf;
+  IntInf e2 = nInf;
   if(e2.num == 0 && e2.posInf == false && e2.negInf == true)
     testPassCnt++;
   else
@@ -61,7 +61,7 @@ int main(){
   }
   
   //test + operator with pinf
-  IntInf sum = pinf + pinf;
+  IntInf sum = pInf + pInf;
   if(sum.num == 0 && sum.posInf == true && sum.negInf == false)
     testPassCnt++;
   else
