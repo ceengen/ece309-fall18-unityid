@@ -182,5 +182,29 @@ bool IntInf::operator >(const IntInf& rhs) const{
 }
 
 bool IntInf::operator <(const IntInf& rhs) const{
-
+	if(posInf && rhs.posInf) //both pos inf
+	{
+		return true;
+	}
+	else if(negInf && rhs.negInf) //both neg inf
+	{
+		retunr false;
+	}
+	else if(negInf) //compairing neg inf to something else
+	{
+		return true;
+	}
+	if((!posInf && !negInf) && (!rhs.posInf && !rhs.posInf)) //compairing two integers
+	{
+		if(num < rhs.num)
+			return true;
+		else
+			return false;
+	}
+	else if(rhs.posInf) //comparing something to pos inf
+	{
+		return true;
+	}
+	else
+		return false;
 }
