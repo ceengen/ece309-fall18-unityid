@@ -36,4 +36,5 @@ int main(){
         nInf.num, nInf.postInf, nInf.negInf);
   }
   
+  return 0; 
 }
