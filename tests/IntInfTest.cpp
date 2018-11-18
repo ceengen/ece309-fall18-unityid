@@ -94,7 +94,7 @@ int main(){
   }
   
   //test / operator with intNum and intNum
-  IntInf result = intNum/intNum
+  IntInf result = intNum/intNum;
   if(result.num == 1 && result.posInf == false && result.negInf == false)
     testPassCnt++;
   else
