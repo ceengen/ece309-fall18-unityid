@@ -13,29 +13,29 @@ int main(){
   {
     testFailCnt++;
     printf("Constructor test fails, intNum should be {12, 0, 0} instead of {%d, %d, %d}", 
-        intNum.num, intNum.postInf, intNum.negInf);
+        intNum.num, intNum.posInf, intNum.negInf);
   }
   
   //test constructor for positive infinity
-  IntInf pInf(,true,);
+  IntInf pInf(,true,,);
   if(pInf.num == 0 && pInf.posInf == true && pInf.negInf == false)
     testPassCnt++;
   else
   {
     testFailCnt++;
     printf("Constructor test fails, pInf should be {0, 1, 0} instead of {%d, %d, %d}", 
-        pInf.num, pInf.postInf, pInf.negInf);
+        pInf.num, pInf.posInf, pInf.negInf);
   }
   
   //test constructor for negatice infinity
-  IntInf nInf(,,true);
+  IntInf nInf(,,true,);
   if(nInf.num == 0 && nInf.posInf == false && nInf.negInf == true)
     testPassCnt++;
   else
   {
     testFailCnt++;
     printf("Constructor test fails, nInf should be {0, 0, 1} instead of {%d, %d, %d}", 
-        nInf.num, nInf.postInf, nInf.negInf);
+        nInf.num, nInf.posInf, nInf.negInf);
   }
   
   //test = constructor
@@ -46,7 +46,7 @@ int main(){
   {
     testFailCnt++;
     printf("Constructor test fails, nInf should be {12, 0, 0} instead of {%d, %d, %d}", 
-        sum.num, sum.postInf, sum.negInf);
+        sum.num, sum.posInf, sum.negInf);
   }
   
   //test
