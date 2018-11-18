@@ -45,7 +45,7 @@ int main(){
   else
   {
     testFailCnt++;
-    printf("Constructor test fails, nInf should be {12, 0, 0} instead of {%d, %d, %d}", 
+    printf("= operator test fails, nInf should be {12, 0, 0} instead of {%d, %d, %d}", 
         e.num, e.posInf, e.negInf);
   }
   
@@ -56,7 +56,7 @@ int main(){
   else
   {
     testFailCnt++;
-    printf("Constructor test fails, nInf should be {0, 1, 0} instead of {%d, %d, %d}", 
+    printf("= operator test fails, nInf should be {0, 1, 0} instead of {%d, %d, %d}", 
         e2.num, e2.posInf, e2.negInf);
   }
   
@@ -67,10 +67,53 @@ int main(){
   else
   {
     testFailCnt++;
-    printf("Constructor test fails, pInf should be {0, 0, 1} instead of {%d, %d, %d}", 
+    printf("+ operator test fails, pInf should be {0, 0, 1} instead of {%d, %d, %d}", 
         sum.num, sum.posInf, sum.negInf);
   }
 
+  //test - operator with nInf and pInf
+  IntInf minus = nInf - pInf;
+  if(minus.num == 0 && minus.posInf == true && minus.negInf == false)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("- operator test fails, pInf should be {0, 0, 1} instead of {%d, %d, %d}", 
+        minus.num, minus.posInf, minus.negInf);
+  }
+  
+  //test * operator with nInf and intNum
+  IntInf product = nInf * intNum;
+  if(product.num == 0 && product.posInf == false && product.negInf == true)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("* operator test fails, nInf should be {0, 1, 0} instead of {%d, %d, %d}", 
+        product.num, product.posInf, product.negInf);
+  }
+  
+  //test / operator with intNum and intNum
+  IntInf result = intNum/intNum
+  if(result.num == 1 && result.posInf == false && result.negInf == false)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("/ operator test fails, nInf should be {1, 0, 0} instead of {%d, %d, %d}", 
+        result.num, result.posInf, result.negInf);
+  }
+  
+  //test == operator with intNum and pInf
+  bool areEqual = intNum == pInf;
+  if(areEqual == false)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("== operater test fails, are equal should be false");
+  }
+  
   printf("Tests passed: %d, tests failed: %d\n", testPassCnt, testFailCnt);
   return 0; 
 }
