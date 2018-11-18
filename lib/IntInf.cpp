@@ -11,17 +11,17 @@ private:
 
 public:
 	IntInf();
-	IntInf& operator =(const IntInf& rhs) const;
-	IntInf& operator +(const IntInf& rhs) const;
-	IntInf& operator -(const IntInf& rhs) const;
-	IntInf& operator *(const IntInf& rhs) const;
-	IntInf& operator /(const IntInf& rhs) const;
+	IntInf operator =(const IntInf& rhs) const;
+	IntInf operator +(const IntInf& rhs) const;
+	IntInf operator -(const IntInf& rhs) const;
+	IntInf operator *(const IntInf& rhs) const;
+	IntInf operator /(const IntInf& rhs) const;
 	bool operator ==(const IntInf& rhs) const;
 	bool operator >(const IntInf& rhs) const;
 	bool operator <(const IntInf& rhs) const;
 };
 
-IntInf& IntInf::operator +(const IntInf& rhs){
+IntInf IntInf::operator +(const IntInf& rhs){
 	if(posInf || rhs.posInf) //either is +infinity
 	{
 		posInf = true;
