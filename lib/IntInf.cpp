@@ -10,7 +10,7 @@ private:
 	bool posInf;
 
 public:
-	IntInf();
+	IntInf(int n =0, bool neg=false, bool pos=false);
 	IntInf operator =(const IntInf& rhs) const;
 	IntInf operator +(const IntInf& rhs) const;
 	IntInf operator -(const IntInf& rhs) const;
@@ -21,20 +21,26 @@ public:
 	bool operator <(const IntInf& rhs) const;
 };
 
+IntInf::IntInf(int n =0, bool neg=false, bool pos = false)
+{
+	num = n;
+	negInf=neg;
+	posInf=pos;
+}
+
 IntInf IntInf::operator +(const IntInf& rhs){
 	if(posInf || rhs.posInf) //either is +infinity
 	{
-		posInf = true;
-		negInf = false;
+		IntInf result(0,true,false);
 	}
 	else if(negInf || rhs.negInf) //neither is +infinity and one is -infinity
 	{
-		posInf = false;
-		negInf = true;
+		IntInf result(0,false,true);
 	}
 	else //both integers
 	{
-		num = num + rhs.num;
+		IntInf result(0,false,false);
+		result.num = num + rhs.num;
 	}
-	return this;
+	return result;
 }
