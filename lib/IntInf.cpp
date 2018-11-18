@@ -138,3 +138,17 @@ IntInf IntInf::operator /(const IntInf& rhs) const{
 	
 	return result;
 }
+
+bool IntInf::operator /(const IntInf& rhs) const{
+	if((!posInf && !negInf) && (!rhs.posInf && !rhs.posInf)) //compairing two integers
+	{
+		if(num == rhs.num)
+			return true;
+		else
+			return false;
+	}
+	else //comparing something to infinity
+	{
+		return false;
+	}
+}
