@@ -111,9 +111,28 @@ int main(){
   else
   {
     testFailCnt++;
-    printf("== operater test fails, are equal should be false");
+    printf("== operater test fails, areEqual should be false");
   }
   
+  //test > operator with nInf and nInf
+  bool isGreater = nInf > nInf;
+  if(isGreater == true)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("> operater test fails, isGreater should be true");
+  }
+  
+  //test < operator with nInf and nInf
+  bool isLess = nInf < nInf;
+  if(isGreater == false)
+    testPassCnt++;
+  else
+  {
+    testFailCnt++;
+    printf("< operater test fails, isLess should be false");
+  }
   printf("Tests passed: %d, tests failed: %d\n", testPassCnt, testFailCnt);
   return 0; 
 }
