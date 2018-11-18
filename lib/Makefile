@@ -1,6 +1,6 @@
 
 # add files you create here
-OBJ = example.o StringList.o MaxHeap.o
+OBJ = example.o StringList.o MaxHeap.o IntInf.o
 
 all: libece309.a
 
