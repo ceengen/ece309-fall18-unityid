@@ -1,3 +1,7 @@
+#ifndef INTINF_H
+#define INTINF_H
+#include <stdio.h>
+
 class IntInf{
 private:
 	int num;
@@ -15,3 +19,5 @@ public:
 	bool operator >(const IntInf& rhs) const;
 	bool operator <(const IntInf& rhs) const;
 };
+
+#endif //EXAMPLE_H
