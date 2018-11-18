@@ -17,24 +17,24 @@ int main(){
   }
   
   //test constructor for positive infinity
-  IntInf pInf(0,true);
+  IntInf pInf(0,false,true);
   if(pInf.num == 0 && pInf.posInf == true && pInf.negInf == false)
     testPassCnt++;
   else
   {
     testFailCnt++;
-    printf("Constructor test fails, pInf should be {0, 1, 0} instead of {%d, %d, %d}", 
+    printf("Constructor test fails, pInf should be {0, 0, 1} instead of {%d, %d, %d}", 
         pInf.num, pInf.posInf, pInf.negInf);
   }
   
   //test constructor for negatice infinity
-  IntInf nInf(0,false,true);
+  IntInf nInf(0,true);
   if(nInf.num == 0 && nInf.posInf == false && nInf.negInf == true)
     testPassCnt++;
   else
   {
     testFailCnt++;
-    printf("Constructor test fails, nInf should be {0, 0, 1} instead of {%d, %d, %d}", 
+    printf("Constructor test fails, nInf should be {0, 1, 0} instead of {%d, %d, %d}", 
         nInf.num, nInf.posInf, nInf.negInf);
   }
   
