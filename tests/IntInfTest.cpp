@@ -1,4 +1,4 @@
-#include <IntArray.h>
+#include <IntInf.h>
 #include <stdio.h>
 
 int main(){
