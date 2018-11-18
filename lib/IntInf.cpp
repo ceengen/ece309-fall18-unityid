@@ -1,11 +1,12 @@
 #include "IntInf.h"
 #include <stdio.h>
 
-IntInf::IntInf(int n, bool neg, bool pos)
+IntInf::IntInf(int n, bool neg, bool pos, bool u)
 {
 	num = n;
 	negInf=neg;
 	posInf=pos;
+	undefined = u;
 }
 
 IntInf IntInf::operator =(const IntInf& rhs) const{
@@ -97,4 +98,43 @@ IntInf IntInf::operator *(const IntInf& rhs) const{
 		result.negInf = true;
 	}
 	return result;	
+}
+
+IntInf IntInf::operator /(const IntInf& rhs) const{
+	IntInf result;
+	if((!rhs.posInf && !rhs.posInf && rhs.num ==0)) //dividing by zero
+	{
+		result.undefined =true;
+		printf("Error dividing by zero");
+	}
+	else if(posInf && rhs.posInf) //both pos inf
+	{
+		result.posInf = true;
+	}
+	else if(negInf && rhs.negInf) //both neg inf
+	{
+		result.posInf = true;
+	}
+	else if((posInf && rhs.negInf) || (negInf && rhs.posInf)) //one neg inf other pos inf
+	{
+		result.negInf = false;
+	}
+	else if(rhs.negInf || rhs.posInf) //dividing int by inf
+	{
+		result.num =0;
+	}
+	else if(posInf) //dividing +inf by int
+	{
+		result.posInf = true;
+	}
+	else if(negInf) //dividing -inf by int
+	{
+		result.negInf = true;
+	}
+	else //both int
+	{
+		result.num = num / rhs.num;
+	}
+	
+	return result;
 }
