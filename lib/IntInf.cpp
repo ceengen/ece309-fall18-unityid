@@ -8,6 +8,14 @@ IntInf::IntInf(int n, bool neg, bool pos)
 	posInf=pos;
 }
 
+IntInf IntInf::operator =(const IntInf& rhs) const{
+	IntInf result;
+	result.num = rhs.num;
+	result.posInf = rhs.posInf;
+	result.negInf = rhs.negInf;
+	return result;
+}
+
 IntInf IntInf::operator +(const IntInf& rhs) const{
 	IntInf result;
 	if(posInf || rhs.posInf) //either is +infinity
