@@ -65,3 +65,36 @@ IntInf IntInf::operator -(const IntInf& rhs) const{
 	}
 	return result;	
 }
+
+IntInf IntInf::operator *(const IntInf& rhs) const{
+	IntInf result;
+	if((!posInf && !negInf)&&(!rhs.posInf && !rhs.posInf)) //both integers
+	{
+		result.num = num * rhs.num;
+	}
+	else if((!posInf && !negInf && num == 0)||(!rhs.posInf && !rhs.posInf && rhs.num ==0) //one is zero
+	{
+		result.num =0;
+	}	
+	else if(negInf && rhs.negInf) //both neg inf
+	{
+		result.posInf = true;
+	}
+	else if(posInf && rhs.posInf) //both pos inf
+	{
+		result.posInf = true;
+	}
+	else if(posInf && rhs.negInf || negInf && rhs.posInf) //one neg inf other pos inf
+	{
+		result.negInf = true;
+	}
+	else if(posInf || rhs.posInf) //one pos inf other int
+	{
+		result.posInf = true;
+	}
+	else if(negInf || rhs.negInf) //one neg inf other int
+	{
+		result.negInf = true;
+	}
+	return result;	
+}
