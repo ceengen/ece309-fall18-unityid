@@ -37,7 +37,8 @@ int main() {
   wg.addEdge(2, 5, 130);
   wg.addEdge(4, 5, 5);
 
-  node_helper *nodesH = ShortestPath(wg, 0);
+  node_helper nPath;
+  node_helper *nodesH = nPath.ShortestPath(wg, 0);
 
   for (int j = 0; j < wg.getNumNodes(); j++) {
     printf("%d: dist=%d pred=%d \n", j, nodesH[j].distance, nodesH[j].pred);
