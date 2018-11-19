@@ -188,9 +188,32 @@ node_helper *ShortestPath(Graph &g, int startV) {
   while(!unvisted.empty()){
     int min_node = unvisited.heapArray[0];
     int min_distance = nodesH[min_node].distance;
+  
+  int index =0;
+  while(index < numNodes)
+  {
+    if(nodesH[index].distance < min_distance)
+    {
+      min_node = index;
+      min_distance = nodesH[min_node].distance;
+    }
+    index++;
   }
   
+  int currentV = min_node;
+  unvisited.remove(min_node);
   
+  List adjList = g.getAdjacenyList(currentV);
+  for(int index2 =0; index2 < numNodes; index2++)
+  {
+    toNode = index2;
+    if(g..getWeight(currentV, toNode) + min_distance < nodesH[toNode].distance)
+    {
+      nodesH[toNode].distance = g.getWeight(currentV, toNode) + min_distance;
+      nodesH[toNode].pred = currentV;
+    }
+  }
+  }
   return nodesH;
 }
 
