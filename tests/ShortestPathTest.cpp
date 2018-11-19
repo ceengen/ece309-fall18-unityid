@@ -26,18 +26,6 @@ int main() {
     if (doesPathExist(g, path, 3))
       printf("Exists!\n");*/
 
-  printf("BFS(0)=");
-  BreadthFirstSearch(g, 0);
-  printf("\nBFS(13)=");
-
-  BreadthFirstSearch(g, 13);
-
-  printf("\nDFS(0): ");
-  DepthFirstSearch(g, 0);
-
-  printf("\nDFS(13): ");
-  DepthFirstSearch(g, 13);
-
   WeightedDenseGraph wg(6);
   wg.addEdge(0, 1, 450);
   wg.addEdge(0, 3, 150);
