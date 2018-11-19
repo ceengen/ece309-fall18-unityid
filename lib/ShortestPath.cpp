@@ -171,20 +171,22 @@ class MinHeap {
 private:
   int heapArraySize; // size of the array
   int nextIndex;     // location of next free array entry
-
+  int *heapArray;    // this is the maxheap
 protected:
   void percolate_up(int);
   void percolate_down(int, int);
 
 public:
-  int *heapArray;    // this is the maxheap
   MinHeap(int size = 100) : heapArraySize(size) {
     heapArray = new int[size];
     for (int i = 0; i < size; i++)
       heapArray[i] = 0;
     nextIndex = 0;
   }
-
+  
+  int getItem(int index)
+  {return heapArray[index];}
+  
   void print() {
     for (int i = 0; i < nextIndex; i++) {
       printf("%d ", heapArray[i]);
@@ -311,7 +313,7 @@ node_helper *ShortestPath(Graph &g, int startV) {
     unvisited.insert(i);
   
   while(!unvisited.empty()){
-    int min_node = unvisited.heapArray[0];
+    int min_node = 0;
     int min_distance = nodesH[min_node].distance;
   
   int index =0;
@@ -328,7 +330,7 @@ node_helper *ShortestPath(Graph &g, int startV) {
   int currentV = min_node;
   unvisited.remove(min_node);
   
-  List adjList = g.getAdjacenyList(currentV);
+  List adjList = g.getAdjacencyList(currentV);
   for(int index2 =0; index2 < numNodes; index2++)
   {
     int toNode = index2;
