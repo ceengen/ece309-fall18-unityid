@@ -124,7 +124,7 @@ bool MinHeap::empty(){
 }
 
 
-node_helper *ShortestPath(Graph &g, int startV) {
+node_helper* node_helper::ShortestPath(Graph &g, int startV) {
    int numNodes = g.getNumNodes();
    node_helper *nodesH = new node_helper[numNodes];
   
