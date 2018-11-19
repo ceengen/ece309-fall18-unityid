@@ -166,59 +166,6 @@ bool doesPathExist(Graph &g, int *path, int length) {
   return true;
 }
 
-class node_helper {
-public:
-  node_helper() {
-    distance = INT_MAX;
-    pred = -1;
-  }
-  int distance;
-  int pred;
-};
-
-node_helper *ShortestPath(Graph &g, int startV) {
-   int numNodes = g.getNumNodes();
-   node_helper *nodesH = new node_helper[numNodes];
-  
-  nodesH[startV].distance =0;
-  MinHeap unvisited(numNodes);
-  for(int i=0; i< numNodes; i++)
-    unvisited.insert(i);
-  
-  while(!unvisted.empty()){
-    int min_node = unvisited.heapArray[0];
-    int min_distance = nodesH[min_node].distance;
-  
-  int index =0;
-  while(index < numNodes)
-  {
-    if(nodesH[index].distance < min_distance)
-    {
-      min_node = index;
-      min_distance = nodesH[min_node].distance;
-    }
-    index++;
-  }
-  
-  int currentV = min_node;
-  unvisited.remove(min_node);
-  
-  List adjList = g.getAdjacenyList(currentV);
-  for(int index2 =0; index2 < numNodes; index2++)
-  {
-    toNode = index2;
-    if(g..getWeight(currentV, toNode) + min_distance < nodesH[toNode].distance)
-    {
-      nodesH[toNode].distance = g.getWeight(currentV, toNode) + min_distance;
-      nodesH[toNode].pred = currentV;
-    }
-  }
-  }
-  return nodesH;
-}
-
-
-
 class MinHeap {
 private:
   int *heapArray;    // this is the maxheap
@@ -340,4 +287,56 @@ bool MinHeap::empty(){
     return true;
   else
     return false;
+}
+
+
+class node_helper {
+public:
+  node_helper() {
+    distance = INT_MAX;
+    pred = -1;
+  }
+  int distance;
+  int pred;
+};
+
+node_helper *ShortestPath(Graph &g, int startV) {
+   int numNodes = g.getNumNodes();
+   node_helper *nodesH = new node_helper[numNodes];
+  
+  nodesH[startV].distance =0;
+  MinHeap unvisited(numNodes);
+  for(int i=0; i< numNodes; i++)
+    unvisited.insert(i);
+  
+  while(!unvisited.empty()){
+    int min_node = unvisited.heapArray[0];
+    int min_distance = nodesH[min_node].distance;
+  
+  int index =0;
+  while(index < numNodes)
+  {
+    if(nodesH[index].distance < min_distance)
+    {
+      min_node = index;
+      min_distance = nodesH[min_node].distance;
+    }
+    index++;
+  }
+  
+  int currentV = min_node;
+  unvisited.remove(min_node);
+  
+  List adjList = g.getAdjacenyList(currentV);
+  for(int index2 =0; index2 < numNodes; index2++)
+  {
+    int toNode = index2;
+    if(g.getWeight(currentV, toNode) + min_distance < nodesH[toNode].distance)
+    {
+      nodesH[toNode].distance = g.getWeight(currentV, toNode) + min_distance;
+      nodesH[toNode].pred = currentV;
+    }
+  }
+  }
+  return nodesH;
 }
