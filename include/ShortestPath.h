@@ -179,4 +179,5 @@ public:
   }
   int distance;
   int pred;
+  node_helper* ShortestPath(Graph &g, int startV);
 };
