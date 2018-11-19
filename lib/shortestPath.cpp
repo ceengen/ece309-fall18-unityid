@@ -166,17 +166,33 @@ bool doesPathExist(Graph &g, int *path, int length) {
   return true;
 }
 
-class MinHeapNode {
+class node_helper {
 public:
-  int distance;
-  int val;
-  int pred;
-  
-  MinHeapNode()
-  {
+  node_helper() {
     distance = INT_MAX;
     pred = -1;
+  }
+  int distance;
+  int pred;
 };
+
+node_helper *ShortestPath(Graph &g, int startV) {
+   int numNodes = g.getNumNodes();
+   node_helper *nodesH = new node_helper[numNodes];
+  
+  nodesH[startV].distance =0;
+  MinHeap unvisited(numNodes);
+  for(int i=0; i< numNodes; i++)
+    unvisited.insert(i);
+  
+  while(!unvisted.empty()){
+    int min_node = unvisited.heapArray[0];
+    int min_distance = nodesH[min_node].distance;
+  }
+  
+  
+  return nodesH;
+}
 
 
 
@@ -207,6 +223,7 @@ public:
 
   bool insert(int);
   bool remove(int &); // remove the max value
+  bool empty();
 
 private:
   MinHeap(int *array, int size, int length = 0)
@@ -295,4 +312,9 @@ void MinHeap::sort(int *array, int size) {
   // return, and the array passed in is sorted
 }
 
-
+bool MinHeap::empty(){
+  if(nextIndex == 0)
+    return true;
+  else
+    return false;
+}
