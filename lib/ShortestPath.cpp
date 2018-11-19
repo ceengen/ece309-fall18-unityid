@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <climits>
 
 using Item = int;
 
@@ -229,7 +230,7 @@ void MinHeap::percolate_down(int index, int size) {
     int min_val = val;
     int min_index = -1;
     for (int i = child_index; i < child_index + 2 && i < size; i++) {
-      if (heapArray[i] < max_val) {
+      if (heapArray[i] < min_val) {
         min_val = heapArray[i];
         min_index = i;
       }
