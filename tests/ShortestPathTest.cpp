@@ -37,10 +37,6 @@ int main() {
   wg.addEdge(2, 5, 130);
   wg.addEdge(4, 5, 5);
 
-  printf("\nwg DFS(0): ");
-  DepthFirstSearch(wg, 0);
-  printf("\n\n");
-
   node_helper *nodesH = ShortestPath(wg, 0);
 
   for (int j = 0; j < wg.getNumNodes(); j++) {
