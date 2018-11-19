@@ -200,7 +200,7 @@ public:
 
 private:
   MinHeap(int *array, int size, int length = 0)
-      : heapArray(array), heapArraySize(size), nextIndex(length) {
+      : heapArraySize(size), nextIndex(length), heapArray(array) {
     int m = nextIndex / 2 - 1; // last internal BTNode
     while (m >= 0) {
       percolate_down(m, length);
@@ -330,7 +330,6 @@ node_helper *ShortestPath(Graph &g, int startV) {
   int currentV = min_node;
   unvisited.remove(min_node);
   
-  List adjList = g.getAdjacencyList(currentV);
   for(int index2 =0; index2 < numNodes; index2++)
   {
     int toNode = index2;
