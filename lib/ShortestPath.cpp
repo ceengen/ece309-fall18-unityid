@@ -169,7 +169,6 @@ bool doesPathExist(Graph &g, int *path, int length) {
 
 class MinHeap {
 private:
-  int *heapArray;    // this is the maxheap
   int heapArraySize; // size of the array
   int nextIndex;     // location of next free array entry
 
@@ -178,6 +177,7 @@ protected:
   void percolate_down(int, int);
 
 public:
+  int *heapArray;    // this is the maxheap
   MinHeap(int size = 100) : heapArraySize(size) {
     heapArray = new int[size];
     for (int i = 0; i < size; i++)
