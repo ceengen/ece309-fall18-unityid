@@ -1,6 +1,6 @@
 
 # list the name of each file (without the .cpp file at the end)
-EXE = example maxHeapTest IntInfTest ShortestPathTest
+EXE = example maxHeapTest IntInfTest
 
 all: $(EXE)
 
