@@ -1,7 +1,7 @@
 #include "IntInf.h"
 #include <stdio.h>
 
-IntInf::IntInf(int n, bool neg, bool pos, bool u)
+ece309::IntInf::IntInf(int n, bool neg, bool pos, bool u)
 {
 	num = n;
 	negInf=neg;
@@ -9,7 +9,7 @@ IntInf::IntInf(int n, bool neg, bool pos, bool u)
 	undefined = u;
 }
 
-IntInf IntInf::operator =(const IntInf& rhs) const{
+IntInf ece309::IntInf::operator =(const IntInf& rhs) const{
 	IntInf result;
 	result.num = rhs.num;
 	result.posInf = rhs.posInf;
@@ -17,7 +17,7 @@ IntInf IntInf::operator =(const IntInf& rhs) const{
 	return result;
 }
 
-IntInf IntInf::operator +(const IntInf& rhs) const{
+IntInf ece309::IntInf::operator +(const IntInf& rhs) const{
 	IntInf result;
 	if(posInf || rhs.posInf) //either is +infinity
 	{
@@ -34,7 +34,7 @@ IntInf IntInf::operator +(const IntInf& rhs) const{
 	return result;
 }
 
-IntInf IntInf::operator -(const IntInf& rhs) const{
+IntInf ece309::IntInf::operator -(const IntInf& rhs) const{
 	IntInf result;
 	if(posInf && rhs.posInf) //if both +inf
 	{
@@ -67,7 +67,7 @@ IntInf IntInf::operator -(const IntInf& rhs) const{
 	return result;	
 }
 
-IntInf IntInf::operator *(const IntInf& rhs) const{
+IntInf ece309::IntInf::operator *(const IntInf& rhs) const{
 	IntInf result;
 	if((!posInf && !negInf)&&(!rhs.posInf && !rhs.posInf)) //both integers
 	{
@@ -100,7 +100,7 @@ IntInf IntInf::operator *(const IntInf& rhs) const{
 	return result;	
 }
 
-IntInf IntInf::operator /(const IntInf& rhs) const{
+IntInf ece309::IntInf::operator /(const IntInf& rhs) const{
 	IntInf result;
 	if((!rhs.posInf && !rhs.posInf && rhs.num ==0)) //dividing by zero
 	{
@@ -139,7 +139,7 @@ IntInf IntInf::operator /(const IntInf& rhs) const{
 	return result;
 }
 
-bool IntInf::operator ==(const IntInf& rhs) const{
+bool ece309::IntInf::operator ==(const IntInf& rhs) const{
 	if((!posInf && !negInf) && (!rhs.posInf && !rhs.posInf)) //compairing two integers
 	{
 		if(num == rhs.num)
@@ -153,7 +153,7 @@ bool IntInf::operator ==(const IntInf& rhs) const{
 	}
 }
 
-bool IntInf::operator >(const IntInf& rhs) const{
+bool ece309::IntInf::operator >(const IntInf& rhs) const{
 	if(posInf && rhs.posInf) //both pos inf
 	{
 		return false;
@@ -181,7 +181,7 @@ bool IntInf::operator >(const IntInf& rhs) const{
 		return false;
 }
 
-bool IntInf::operator <(const IntInf& rhs) const{
+bool ece309::IntInf::operator <(const IntInf& rhs) const{
 	if(posInf && rhs.posInf) //both pos inf
 	{
 		return true;
