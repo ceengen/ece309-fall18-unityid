@@ -2,6 +2,7 @@
 #define INTINF_H
 #include <stdio.h>
 
+namespace ece309{
 class IntInf{
 public:
 	int num;
@@ -20,5 +21,5 @@ public:
 	bool operator >(const IntInf& rhs) const;
 	bool operator <(const IntInf& rhs) const;
 };
-
+}
 #endif 
