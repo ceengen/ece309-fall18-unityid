@@ -9,7 +9,7 @@ ece309::IntInf::IntInf(int n, bool neg, bool pos, bool u)
 	undefined = u;
 }
 
-IntInf ece309::IntInf::operator =(const IntInf& rhs) const{
+ece309::IntInf ece309::IntInf::operator =(const IntInf& rhs) const{
 	IntInf result;
 	result.num = rhs.num;
 	result.posInf = rhs.posInf;
@@ -17,7 +17,7 @@ IntInf ece309::IntInf::operator =(const IntInf& rhs) const{
 	return result;
 }
 
-IntInf ece309::IntInf::operator +(const IntInf& rhs) const{
+ece309::IntInf ece309::IntInf::operator +(const IntInf& rhs) const{
 	IntInf result;
 	if(posInf || rhs.posInf) //either is +infinity
 	{
@@ -34,7 +34,7 @@ IntInf ece309::IntInf::operator +(const IntInf& rhs) const{
 	return result;
 }
 
-IntInf ece309::IntInf::operator -(const IntInf& rhs) const{
+ece309::IntInf ece309::IntInf::operator -(const IntInf& rhs) const{
 	IntInf result;
 	if(posInf && rhs.posInf) //if both +inf
 	{
@@ -67,7 +67,7 @@ IntInf ece309::IntInf::operator -(const IntInf& rhs) const{
 	return result;	
 }
 
-IntInf ece309::IntInf::operator *(const IntInf& rhs) const{
+ece309::IntInf ece309::IntInf::operator *(const IntInf& rhs) const{
 	IntInf result;
 	if((!posInf && !negInf)&&(!rhs.posInf && !rhs.posInf)) //both integers
 	{
@@ -100,7 +100,7 @@ IntInf ece309::IntInf::operator *(const IntInf& rhs) const{
 	return result;	
 }
 
-IntInf ece309::IntInf::operator /(const IntInf& rhs) const{
+ece309::IntInf ece309::IntInf::operator /(const IntInf& rhs) const{
 	IntInf result;
 	if((!rhs.posInf && !rhs.posInf && rhs.num ==0)) //dividing by zero
 	{
